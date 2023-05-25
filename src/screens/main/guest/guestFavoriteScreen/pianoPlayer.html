@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* @media only screen and (max-width: 600px) {
+        .pog {
+          background-color: red !important;
+        }
+      } */
+      body {
+        margin: 0;
+        padding: 10px;
+      }
+      .waterfall-visualizer {
+        overflow-x: scroll;
+      }
+      .player {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <midi-player
+      src="yellow.mid"
+      sound-font
+      visualizer="#myWaterfallVisualizer, #myStaffVisualizer"
+      class="player">
+    </midi-player>
+    <midi-visualizer
+      type="waterfall"
+      class="pog"
+      id="myWaterfallVisualizer"></midi-visualizer>
+    <midi-visualizer type="staff" id="myStaffVisualizer"></midi-visualizer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+  <script>
+    window.addEventListener('message', message => {
+      // document.querySelector('p').style.backgroundColor = message.data;
+      document.querySelector('midi-player').src = message.data;
+    });
+  </script>
+</html>
