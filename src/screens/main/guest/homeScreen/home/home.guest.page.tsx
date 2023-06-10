@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -9,7 +9,7 @@ import {
   Modal,
   RefreshControl,
 } from 'react-native';
-import {Button, Text} from 'native-base';
+import {Text} from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {images} from '../../../../../theme/variables';
 import Piano from '../../../../../components/piano/Piano';
@@ -158,6 +158,8 @@ export const HomeGuestPage = ({navigation}: any) => {
         });
     } catch (error) {
       console.log('MUSIC CREATE ERROR', error);
+      setNotesList([]);
+      setLoading(false);
     }
   };
 
